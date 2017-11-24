@@ -1,0 +1,52 @@
+<section id="buscador" style="background-image: url(./assets/images/tbbt.jpg)">
+	<div class="content">
+		<p class="title">
+			Course Search
+		</p>
+
+		<div class="input-group">
+			<input id="txtSearch" type="text" placeholder="Search courses and providers...">
+			<img (click)="search($event)" src="./assets/images/ico-search.png" alt="" class="icon">
+		</div>
+		
+		<div class="footer">
+			<span>Florida</span>
+			<hr>
+			<span>Registred Nurse Florida</span>
+		</div>
+	</div>
+</section>
+
+<section id="patrocinado">
+	<h2>Featured Courses</h2>
+	<ul>
+		<li *ngFor="let curso of cursosPagos">
+			<img src="https://storage.cebroker.com/CEBroker/{{ curso.coursePublication.course.featuredBanner }}" alt="">
+			<div class="info">
+					
+				<h2>{{ curso.coursePublication.course.name }}</h2>
+				<span>{{ curso.coursePublication.course.provider.name }}</span>
+				<p>26 Hrs Computer-Based Training</p> <!-- No encontre la propiedad en el api rest que se asemejara al los datos del diseño enviado -->
+				<hr>
+				<button>$ 24.95</button> <!-- No encontre la propiedad en el api rest que se asemejara al los datos del diseño enviado -->
+			</div>
+		</li>
+	</ul>
+</section>
+
+<div class="numResultados">
+	<span id="numResultados"></span>
+	Results
+</div>
+
+<section id="resultados">
+	<li *ngFor="let node of cursos">
+		<div class="info">
+			<h2>{{ node.course.name }}</h2>
+			<span>{{ node.course.provider.name }}</span>
+			<p>{{ node.course.deliveryMethod.description }}</p>
+			
+			<button>$ 24.95</button>
+		</div>
+	</li>	
+</section>
